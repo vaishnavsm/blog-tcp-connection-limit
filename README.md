@@ -1,6 +1,6 @@
 # Making TCP Connections With Socket Reuse
 
-**Note:** This repo is meant to be used and read alongside [this article](https://vaishnavsm.com).
+**Note:** This repo is meant to be used and read alongside [this article](https://vaishnavsm.com/2024-06-08-how-many-tcp-connections/).
 
 ## Components
 
