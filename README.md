@@ -61,9 +61,14 @@ make all
 ```
 
 ## Experiments you may want to try
+
+Try predicting what will happen, then try doing these experiments:
+
 1. Create two instances of the server that use different bind ips but the same port, and connect to it from two instances of the connector that share the same bind ip and bind port.
 1. Create one server instance listening on all IPs, and connect to it from two instances of the connector that share the same bind IP and bind port, but uses two different server (destination) IPs. These can be the loopback and LAN IPs.
 1. Create two instances of the server that use different bind ports but the same ip, and connect to it from two instances of the connector that share the same bind ip and bind port.
+1. Create one server instance listening on the LAN IP, and connect to it from connectors sharing the same port but different IPs.
+
 
 **A helpful note on IPs**
 
