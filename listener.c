@@ -26,7 +26,9 @@ int setServerOpts(int server_fd) {
   int res;
   if (setFdOptNonBlocking(server_fd))
     return -1;
-  if (setFdOptsReuse(server_fd))
+  if (setFdOptsReuseAddr(server_fd))
+    return -1;
+  if (setFdOptsReusePort(server_fd))
     return -1;
   return 0;
 }

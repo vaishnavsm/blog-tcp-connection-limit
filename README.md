@@ -10,7 +10,7 @@ The listener is a simple c TCP server that just echos any TCP data it is sent fr
 It uses non-blocking sockets (setting the `SO_RCVTIMEO`, `SO_SNDTIMEO`, and `O_NONBLOCK` options on the socket) and uses `poll` to poll for events on the listen socket and connection file descriptors.
 
 The listener is also started with the `SO_REUSEADDR` and `SO_REUSEPORT` options.
-`SO_REUSEPORT` is not really relevant to the listener in the article, as we do not try and spin up multiple servers listening on the same port. However, it is possible to run multiple instances of this listener on the same port given they use different listen addresses. This includes one listener on `0.0.0.0` and another on `127.0.0.1`, for example.
+`SO_REUSEPORT` is not really relevant to the listener in the article, as we do not try and spin up multiple servers listening on the same port. In this article, we assume they use different listen addresses. This includes one listener on `0.0.0.0` and another on `127.0.0.1`, for example. However, it is possible to run multiple instances of this listener on the same port.
 
 ### Connector
 
@@ -18,7 +18,7 @@ The connector is a simple c TCP client that connects to a TCP server and sends a
 
 Unlike normal TCP clients, the connector specifically `bind`s to a given port before making the TCP connection using `connect`. This is just so we can control the port the connection is made from, and does not impact the socket behaviour.
 
-The connector is started with the `SO_REUSEADDR` and `SO_REUSEPORT` options. This is what allows multiple instances of the connector to share `(source ip, source port)`.
+The connector is started with the `SO_REUSEADDR` option. Of this, `SO_REUSEADDR` is what allows multiple instances of the connector to share `(source ip, source port)`.
 
 ## Building
 

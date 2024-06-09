@@ -109,7 +109,7 @@ int setFdOptNonBlocking(int fd) {
   return 0;
 }
 
-int setFdOptsReuse(int fd) {
+int setFdOptsReuseAddr(int fd) {
   int enable = 1;
 
   if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable)) <
@@ -118,6 +118,12 @@ int setFdOptsReuse(int fd) {
     printf("couldn't set SO_REUSEADDR setting (%d)\n", errsv);
     return -1;
   }
+
+  return 0;
+}
+
+int setFdOptsReusePort(int fd) {
+  int enable = 1;
 
   if (setsockopt(fd, SOL_SOCKET, SO_REUSEPORT, &enable, sizeof(enable)) <
       0) {

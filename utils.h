@@ -6,4 +6,5 @@ void closeConnections(struct pollfd fdlist[], int len);
 char *getPeerIdentifier(int fd);
 char *getSelfIdentifier(int fd);
 int setFdOptNonBlocking(int fd);
-int setFdOptsReuse(int fd);
+int setFdOptsReuseAddr(int fd);
+int setFdOptsReusePort(int fd);

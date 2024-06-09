@@ -23,7 +23,7 @@ int setClientOpts(int client_fd) {
   int res;
   // if (setFdOptNonBlocking(client_fd))
     // return -1;
-  if (setFdOptsReuse(client_fd))
+  if (setFdOptsReuseAddr(client_fd))
     return -1;
   return 0;
 }
