@@ -69,6 +69,16 @@ Try predicting what will happen, then try doing these experiments:
 1. Create two instances of the server that use different bind ports but the same ip, and connect to it from two instances of the connector that share the same bind ip and bind port.
 1. Create one server instance listening on the LAN IP, and connect to it from connectors sharing the same port but different IPs.
 
+### Changing the socket options
+You can change the options that are set on the connector and listener by going to their code files and changing the corresponding set options function at the top of each.
+
+```
+listener - listener.c - setServerOpts
+connector - connector.c - setClientOpts
+```
+
+Specifically, you may want to try removing the `SO_REUSEADDR` option on them and re-running the above experiments!
+Note that the error codes are system dependent. I found [this tool](http://www.usefuljs.net/api/errno/macosx) helpful, but you can always just google it!
 
 **A helpful note on IPs**
 
